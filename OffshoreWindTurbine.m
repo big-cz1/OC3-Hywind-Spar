@@ -11,9 +11,11 @@ GRAVACC = 9.80655; FLUIDDENSITY = 1025;
 
 if libisloaded('MoorDyn') || libisloaded('MoorApiwin64')
     if libisloaded('MoorApiwin64')
-    calllib('MoorApiwin64','finish'); unloadlibrary('MoorApiwin64');
+        calllib('MoorApiwin64','finish'); 
+        unloadlibrary('MoorApiwin64');
     else
-    calllib('MoorDyn','LinesClose');      unloadlibrary MoorDyn;  
+        calllib('MoorDyn','LinesClose');      
+        unloadlibrary MoorDyn;  
     end                                    % unload library (never forget to do this!)end
 end
 
@@ -24,7 +26,9 @@ end
 [Servo]              = ServoDyn();
 
 % Create tower and blade structures
-Twr = CreateTwr(Tower,ElastoDyn); Bld = CreateBld(ElastoDyn,Geometry,Blade); Platform = CreatePlatform();
+Twr = CreateTwr(Tower,ElastoDyn); 
+Bld = CreateBld(ElastoDyn,Geometry,Blade); 
+Platform = CreatePlatform();
 Platform.Mooring     = 1;    % 1 for Moordyn, 2 for OpenMoor
 Platform.WaveLoads   = 0;    % 1 to calculate wave load on spar using Morisson's equation, 0 to not.
 
