@@ -16,7 +16,8 @@ if libisloaded('MoorDyn') || libisloaded('MoorApiwin64')
     else
         calllib('MoorDyn','LinesClose');      
         unloadlibrary MoorDyn;  
-    end                                    % unload library (never forget to do this!)end
+    end                                    
+    % unload library (never forget to do this!)end
 end
 
 % Read FAST input data files
@@ -61,7 +62,7 @@ end
 
 % Get the TurbSim generated wind field and grid
 [velocity, Wind.y, Wind.z, Wind.nz, Wind.ny, Wind.dz,...
-          Wind.dy, Wind.dt, Wind.zHub, Wind.z1, Wind.SummVars] = readBLgrid('NTM_A_8mps');
+          Wind.dy, Wind.dt, Wind.zHub, Wind.z1, Wind.SummVars] = readBLgrid('NTM_A');
 Wind.t_TurbSim = (0:1:size(velocity,1)-1)*Wind.dt;
 
 % for steady wind field, uncomment the next line
